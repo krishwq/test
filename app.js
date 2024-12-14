@@ -24,16 +24,16 @@ app.get('/',(req,res)=>{
 
 app.post('/submit',upload.single('textfile'),  (req,res)=>{
     let filepath=req.file.path;
-    let cont=fs.readFileSync(filepath,'utf-8');
-    // fs.appendFile(filepath,'updated',(err)=>{
-    //     if (err)
-    //         console.log(err);
-    // });
-    fs.unlink(filepath,(err)=>{
-        if(err)
-        console.log(err)});
-    // res.status(200).render('index.pug',{"filepath":filepath});
-    res.send(cont);
+    // let cont=fs.readFileSync(filepath,'utf-8');
+    fs.appendFile(filepath,'--updated',(err)=>{
+        if (err)
+            console.log(err);
+    });
+    // fs.unlink(filepath,(err)=>{
+    //     if(err)
+    //     console.log(err)});
+    res.status(200).render('index.pug',{"filepath":filepath});
+    // res.send(cont);
     // res.download(filepath,(err)=>{
     //     if(err)
     //         console.log(err);
@@ -42,7 +42,6 @@ app.post('/submit',upload.single('textfile'),  (req,res)=>{
     //         console.log(err)});
     // });
     })
-   
 
 app.listen(port,()=>{
     console.log('server is running');
