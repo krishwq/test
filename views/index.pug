@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data</title>
+
+style
+    include style.css
+</head>
+<body>
+<h1>#{message}</h1>
+<form action="/submit" method="post" enctype="multipart/form-data">
+<input type="file" name="textfile" accept=".txt" required >
+<button>submit</button>
+</form>
+if filepath
+    a(href=filepath download="picture") Download
+
+</body>
+</html>
